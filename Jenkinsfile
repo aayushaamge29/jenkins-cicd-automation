@@ -2,10 +2,16 @@ pipeline {
     agent any
 
     environment {
-        PYTHONPATH = "${WORKSPACE}"
+        IMAGE_NAME = "python-cicd-demo"
     }
 
     stages {
+
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/aayushaamge29/jenkins-cicd-automation.git'
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
@@ -19,9 +25,15 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
+        stage('Build Docker Image') {
             steps {
-                bat 'python app\\app.py'
+                bat 'docker build -t %IMAGE_NAME% .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                bat 'docker run -d -p 5000:5000 %IMAGE_NAME%'
             }
         }
 
