@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/aayushaamge29/jenkins-cicd-automation.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 bat 'python -m pip install -r requirements.txt'
