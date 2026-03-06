@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "app/app.py"]
+CMD ["python", "-m", "app.app"]
