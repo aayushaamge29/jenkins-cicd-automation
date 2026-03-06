@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "python-cicd-demo"
+        IMAGE_NAME = "task-manager-api"
     }
 
     stages {
