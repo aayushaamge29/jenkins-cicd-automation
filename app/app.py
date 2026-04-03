@@ -9,7 +9,7 @@ app.register_blueprint(task_blueprint)
 def home():
 
     return {
-        "message": "Professional Jenkins CI/CD Demo API"
+        "message": "Jenkins CI/CD Demo"
     }
 
 
